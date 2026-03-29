@@ -1,5 +1,7 @@
 #!/bin/bash
-WIKI_DIR="repo-wiki/wiki"
+# Resolve wiki/ next to this script (…/skills/repo-wiki/wiki), not cwd-relative "repo-wiki/wiki"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+WIKI_DIR="$SCRIPT_DIR/../wiki"
 
 # Ensure the wiki directory exists
 mkdir -p "$WIKI_DIR"

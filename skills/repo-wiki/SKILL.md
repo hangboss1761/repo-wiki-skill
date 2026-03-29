@@ -14,9 +14,14 @@ description: Use this skill when project documentation needs to be created, upda
 
 Build a continuous flow of "code facts -> project docs -> reusable team knowledge" instead of one-off documentation.
 
-Positioning: like DeepWiki, but built and maintained by the agent (in-repo docs under `repo-wiki/wiki/`).
+Positioning: like DeepWiki, but agent-maintained in-repo docs.
 
-`wiki/_sidebar.md` is the sidebar / table-of-contents index for the doc set—read it first when you need to scan or open pages quickly.
+`wiki/_sidebar.md` is the TOC—read it first to scan the doc set.
+
+## Wiki path (MUST)
+
+- Write all docs under **`wiki/`** that sits **next to this `SKILL.md`** (same directory as `scripts/`).
+- **MUST NOT** choose the path from the repo or workspace folder name; **MUST** resolve from this file’s location in the tree.
 
 ## Trigger Conditions
 
@@ -34,7 +39,7 @@ Do not trigger for:
 
 ## Required Outputs
 
-1. Update project docs under `repo-wiki/wiki/`
+1. Update docs under this skill’s `wiki/` (per **Wiki path**)
 2. Include a brief change report in the response:
 
 ```markdown
@@ -53,7 +58,7 @@ Do not trigger for:
 
 ## Global Hard Rules (Must Pass)
 
-1. Documentation root directory is always `repo-wiki/wiki/`
+1. Obey **Wiki path**
 2. Every page must be reachable from `wiki/_sidebar.md`
 3. Architecture/flow pages must include at least one Mermaid diagram
 4. Inter-page links must use relative paths
@@ -95,5 +100,5 @@ When tasks affect routes/state/dependencies/cross-module calls, check whether do
 
 ## Local Preview
 
-`bash repo-wiki/scripts/serve-wiki.sh` (optional shortcut: add `"wiki": "bash repo-wiki/scripts/serve-wiki.sh"` to `package.json`, then run `pnpm run wiki`)
+`bash <path-to-this-skill>/scripts/serve-wiki.sh` — the script resolves `wiki/` beside itself, not from cwd. Optional `package.json`: same command as `"wiki"`, then `pnpm run wiki`.
 
