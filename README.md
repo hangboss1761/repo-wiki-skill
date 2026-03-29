@@ -10,6 +10,16 @@ It turns code facts into navigable project docs under `repo-wiki/wiki/`, instead
 
 Like **DeepWiki**, but built and maintained by your agent.
 
+## Installation
+
+From your **project** root (the repo you want documented), run:
+
+```bash
+npx skills add hangboss1761/repo-wiki-skill
+```
+
+This installs the skill **for that project** only. **Global** installation is not recommended.
+
 ## When to use
 
 Use this skill when you need to:
